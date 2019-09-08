@@ -28,9 +28,9 @@ class ContactHelper {
 
   Future<Database> initDb() async {
     final databasesPath = await getDatabasesPath();
-    final path = join(databasesPath, 'contacts.db');
+    final path = join(databasesPath, 'contacts2.db');
 
-    openDatabase(path, version: 1,
+    return await openDatabase(path, version: 1,
         onCreate: (Database db, int newerVersion) async {
       await db
           .execute("CREATE TABLE $contactTable ($idColumn INTEGER PRIMARY KEY, "
@@ -41,7 +41,9 @@ class ContactHelper {
 
   Future<Contact> saveContact(Contact contact) async {
     Database dbContact = await db;
+    print (dbContact);
     contact.id = await dbContact.insert(contactTable, contact.toMap());
+    print (contact.id);
     return contact;
   }
 
@@ -81,7 +83,8 @@ class ContactHelper {
 
   Future<int> getNumber() async {
     Database dbContact = await db;
-    return Sqflite.firstIntValue(await dbContact.rawQuery("SELECT COUNT(*) FROM $contactTable"));
+    return Sqflite.firstIntValue(
+        await dbContact.rawQuery("SELECT COUNT(*) FROM $contactTable"));
   }
 
   Future close() async {
@@ -106,6 +109,8 @@ class Contact {
     phone = map[phoneColumn];
     img = map[imgColumn];
   }
+
+  Contact();
 
   Map toMap() {
     Map<String, dynamic> map = {

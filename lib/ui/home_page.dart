@@ -17,6 +17,13 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+//    Contact c = Contact();
+//    c.name = "Leandra";
+//    c.email = "adskxxxxxx@ig.com.abr";
+//    c.phone = "222222";
+//    c.img = "adfadsfddddd";
+//
+//    helper.saveContact(c);
     helper.getAllContacts().then((list) {
       setState(() {
         contacts = list;
@@ -42,9 +49,7 @@ class _HomePageState extends State<HomePage> {
           itemCount: contacts.length,
           padding: EdgeInsets.all(10.0),
           itemBuilder: (context, index) {
-            return Row(
-              children: <Widget>[_contactCard(context, index)],
-            );
+            return _contactCard(context, index);
           }),
     );
   }

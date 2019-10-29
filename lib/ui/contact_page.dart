@@ -90,7 +90,7 @@ class _ContactPageState extends State<ContactPage> {
                 _editedContact.phone = text;
               },
               keyboardType: TextInputType.phone,
-              controller: _emailController,
+              controller: _phoneController,
             ),
           ],
         ),

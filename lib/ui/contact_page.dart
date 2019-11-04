@@ -4,6 +4,7 @@ import 'dart:developer' as dev;
 
 import 'package:agenda_contatos_flutter/helpers/contact_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ContactPage extends StatefulWidget {
   final Contact contact;
@@ -75,6 +76,15 @@ class _ContactPageState extends State<ContactPage> {
                               ? FileImage(File(_editedContact.img))
                               : AssetImage("images/person.png"))),
                 ),
+                onTap: () {
+                  ImagePicker.pickImage(source: ImageSource.camera)
+                      .then((file) {
+                    dev.log(file.path);
+                    setState(() {
+                      _editedContact.img = file.path;
+                    });
+                  });
+                },
               ),
               TextField(
                 decoration: InputDecoration(labelText: "Nome"),
@@ -123,13 +133,13 @@ class _ContactPageState extends State<ContactPage> {
               actions: <Widget>[
                 FlatButton(
                   child: Text("Cancelar"),
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pop(context);
                   },
                 ),
                 FlatButton(
                   child: Text("Sim"),
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pop(context);
                     Navigator.pop(context);
                   },

@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/augustocbx/flutter
-FLUTTER_APPLICATION_PATH=/Users/augustocbx/ProjectsEstudoFlutter/agenda_contatos_flutter
-FLUTTER_TARGET=lib/main.dart
+FLUTTER_APPLICATION_PATH=/Users/augustocbx/ProjectsFlutterEstudo/agenda_contatos_flutter
+FLUTTER_TARGET=/Users/augustocbx/ProjectsFlutterEstudo/agenda_contatos_flutter/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Users/augustocbx/flutter/bin/cache/artifacts/engine/ios
